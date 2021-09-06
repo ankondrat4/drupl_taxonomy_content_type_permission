@@ -35,12 +35,11 @@
           </div>
 				        </form>
         
-        <form class="form-signup" action="" method="post" name="form">
+        <form class="form-signup" action="register.php" method="post" name="form">
             <input class="form-styling" type="text" name="firstname" placeholder="First Name*"/>
-            <input class="form-styling" type="text" name="secondname" placeholder="Second Name*"/>
+            <input class="form-styling" type="text" name="lastdname" placeholder="Last Name*"/>
             <input class="form-styling" type="text" name="email" placeholder="Email Adress*"/>
-            <input class="form-styling" type="date" name="email" tyle="color: rgba(255,255,255,.5);"  placeholder="Birthday*"/>
-            <input class="form-styling" type="text" name="email" placeholder="Topics*"/>
+            <input class="form-styling" type="date" name="date" tyle="color: rgba(255,255,255,.5);"  placeholder="Birthday*"/>
             <label for="username">Choose some interesting topics</label>
             <select class="form-styling-select" name="topics" style="color: rgba(255,255,255,.5);" required="required" multiple>
 <!--
@@ -70,7 +69,10 @@ while($row = mysqli_fetch_array($result))
             <input type="checkbox" id="checkbox2"/>
             <label for="checkbox2" ><span class="ui"></span>I confirm my registration</label>
 
-            <a ng-click="checked = !checked" class="btn-signup">Sign Up</a>
+            <br>
+            <input type="submit" class="form-styling" value="Sign Up">
+
+            <!--<a ng-click="checked = !checked" class="btn-signup">Sign Up</a>-->
         </form>
       
             <div  class="success">
@@ -79,10 +81,12 @@ while($row = mysqli_fetch_array($result))
                  <path fill="#ffffff" d="M40.61,23.03L26.67,36.97L13.495,23.788c-1.146-1.147-1.359-2.936-0.504-4.314
                   c3.894-6.28,11.169-10.243,19.283-9.348c9.258,1.021,16.694,8.542,17.622,17.81c1.232,12.295-8.683,22.607-20.849,22.042
                   c-9.9-0.46-18.128-8.344-18.972-18.218c-0.292-3.416,0.276-6.673,1.51-9.578" />
-                <div class="successtext">
+                  </svg>
+                  <div class="successtext">
                    <p> Thanks for signing up! Check your email for confirmation.</p>
                 </div>
-             </div>
+
+            </div>
       </div>
       
       <div>

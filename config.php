@@ -14,7 +14,7 @@ try
 
     //$conn= new PDO("mysql:host=$host;dbname=$dbname",$config['DB_USERNAME'],$config['DB_PASSWORD']);
 
-    echo "<p>Connect OK!</p>>";
+    //echo "<p>Connect OK!</p>";
 }
 catch(Exception $e)
 {
