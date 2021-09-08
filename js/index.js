@@ -1,3 +1,32 @@
+$( document ).ready(function() {
+    $("#btn2").click(
+        function(){
+            sendAjaxForm('successtext', 'form_signup', 'register.php');
+            return false;
+        }
+    );
+});
+
+function sendAjaxForm(successtext, form_signup, url) {
+    $.ajax({
+        url:     url, //url страницы (action_ajax_form.php)
+        type:     "POST", //метод отправки
+        dataType: "html", //формат данных
+        data: $("#"+form_signup).serialize(),  // Сеарилизуем объект
+        success: function(data)
+        {
+            $('#successtext').html(data);
+
+        },
+        error: function(response) { // Данные не отправлены
+            $('#successtext').html('Ошибка. Данные не отправлены.');
+        }
+    });
+}
+
+
+
+
 $(function() {
 	$(".btn").click(function() {
 		$(".form-signin").toggleClass("form-signin-left");

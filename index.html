@@ -35,10 +35,10 @@
           </div>
 				        </form>
         
-        <form class="form-signup" action="register.php" method="post" name="form">
+        <form class="form-signup" id="form_signup" action="register.php" method="post" name="form">
             <input class="form-styling" type="text" name="firstname" placeholder="First Name*"/>
-            <input class="form-styling" type="text" name="lastdname" placeholder="Last Name*"/>
-            <input class="form-styling" type="text" name="email" placeholder="Email Adress*"/>
+            <input class="form-styling" type="text" name="lastname" placeholder="Last Name*"/>
+            <input class="form-styling" type="email" name="email" placeholder="Email Adress*" pattern="[a-zA-Z0-9!#$%&amp;'*+\/=?^_`{|}~.-]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*"pattern="[a-zA-Z0-9!#$%&amp;'*+\/=?^_`{|}~.-]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*"/>
             <input class="form-styling" type="date" name="date" tyle="color: rgba(255,255,255,.5);"  placeholder="Birthday*"/>
             <label for="username">Choose some interesting topics</label>
             <select class="form-styling-select" name="topics" style="color: rgba(255,255,255,.5);" required="required" multiple>
@@ -70,11 +70,12 @@ while($row = mysqli_fetch_array($result))
             <label for="checkbox2" ><span class="ui"></span>I confirm my registration</label>
 
             <br>
-            <input type="submit" class="form-styling" value="Sign Up">
+            <input type="submit" class="btn-signup" id="btn2" value="Sign Up">
 
             <!--<a ng-click="checked = !checked" class="btn-signup">Sign Up</a>-->
         </form>
-      
+
+
             <div  class="success">
               <svg width="270" height="270" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
        viewBox="0 0 60 60" id="check" ng-class="checked ? 'checked' : ''">
@@ -82,8 +83,8 @@ while($row = mysqli_fetch_array($result))
                   c3.894-6.28,11.169-10.243,19.283-9.348c9.258,1.021,16.694,8.542,17.622,17.81c1.232,12.295-8.683,22.607-20.849,22.042
                   c-9.9-0.46-18.128-8.344-18.972-18.218c-0.292-3.416,0.276-6.673,1.51-9.578" />
                   </svg>
-                  <div class="successtext">
-                   <p> Thanks for signing up! Check your email for confirmation.</p>
+                  <div class="successtext" id="successtext">
+                   <!--<p> Thanks for signing up! Check your email for confirmation.</p>-->
                 </div>
 
             </div>
@@ -112,6 +113,7 @@ while($row = mysqli_fetch_array($result))
 </div>
   <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 <script src='http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.14/angular.min.js'></script>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
     <script src="js/index.js"></script>
 
