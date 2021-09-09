@@ -19,10 +19,28 @@ function sendAjaxForm(successtext, form_signup, url) {
 
         },
         error: function(response) { // Данные не отправлены
-            $('#successtext').html('Ошибка. Данные не отправлены.');
+            $('#successtext').html('Error. Data don\'t send.');
         }
     });
 }
+
+
+
+
+function checkPasswordMatch() {
+var password = $("#txtNewPassword").val();
+var confirmPassword = $("#txtConfirmPassword").val();
+
+if (password != confirmPassword)
+    $("#divCheckPasswordMatch").html("Passwords do not match!");
+else
+    $("#divCheckPasswordMatch").html("Passwords match.");
+}
+
+$(document).ready(function () {
+    $("#txtConfirmPassword").keyup(checkPasswordMatch);
+});
+
 
 
 

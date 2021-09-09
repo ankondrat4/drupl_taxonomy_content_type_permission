@@ -65,7 +65,11 @@ while($row = mysqli_fetch_array($result))
                 <option value="5">Ships</option>
                 <option value="6">Technologies</option>
             </select>
-            <input class="form-styling" type="text" name="password" placeholder="Set A Password"/>
+            <input class="form-styling" type="password" name="password" id="txtNewPassword" placeholder="Set A Password"/>
+            <input class="form-styling" type="password" name="password2" id="txtConfirmPassword" onCahge = "checkPasswordMatch ();" placeholder="Repeat A Password"/>
+            <div class="registrationFormAlert" id="divCheckPasswordMatch"></div>
+
+
             <input type="checkbox" name="agree" id="checkbox2"/>
             <label for="checkbox2" ><span class="ui"></span>I confirm my registration</label>
 
@@ -84,11 +88,7 @@ while($row = mysqli_fetch_array($result))
                   c-9.9-0.46-18.128-8.344-18.972-18.218c-0.292-3.416,0.276-6.673,1.51-9.578" />
                   </svg>
                   <div class="successtext" id="successtext">
-                   <!--<p> Thanks for signing up! Check your email for confirmation.</p>-->
-
-
-                </div>
-
+                  </div>
             </div>
       </div>
       
