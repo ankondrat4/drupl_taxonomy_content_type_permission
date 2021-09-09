@@ -32,13 +32,18 @@ if($result->num_rows == 1) {
   <div class="frame">
     <div ng-app ng-init="checked = false">
         <form class="form-signin" id="form_signin" action="" method="post" name="form">
-            <label for="name">Your profile:</label>
+            <label for="name">Edit your profile:</label>
             <br>
-            <label for="username">Username: <span id="login" style="color:coral;"><?php echo $_GET["login"];?></span> </label>
-            <label for="firstname">First name: <span style="color:coral;"><?php echo $user->GetFirstName();?></span> </label>
-            <label for="lastname">Last name: <span style="color:coral;"><?php echo $user->GetLastName();?></span> </label>
-            <label for="email">E-mail: <span style="color:coral;"><?php echo $user->GetEmail();?></span> </label>
-            <label for="birth">Birthday: <span style="color:coral;"><?php echo $user->GetBirth();?></span> </label>
+            <label for="username">Username: </label>
+            <input class="form-styling" type="text" name="username" placeholder="" value="<?php echo $_GET["login"];?>"/>
+            <label for="firstname">First name:</label>
+            <input class="form-styling" type="text" name="firstname" placeholder="First Name*" value="<?php echo $user->GetFirstName();?>"/>
+            <label for="lastname">Last name:</label>
+            <input class="form-styling" type="text" name="lastname" placeholder="Last Name*" value="<?php echo $user->GetLastName();?>"/>
+            <label for="email">E-mail:</label>
+            <input class="form-styling" type="email" name="email" value="<?php echo $user->GetEmail();?>" placeholder="Email Adress*" pattern="[a-zA-Z0-9!#$%&amp;'*+\/=?^_`{|}~.-]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*"pattern="[a-zA-Z0-9!#$%&amp;'*+\/=?^_`{|}~.-]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*"/>
+            <label for="birth">Birthday: </label>
+            <input class="form-styling" type="date" name="date" style="color: rgba(255,255,255,.5);"  placeholder="Birthday*"value="?php echo $user->GetBirth();?>"/>
             <?php echo "<input type=\"button\" class=\"btn-signup\" id=\"btn4\" onclick=\"document.location.href = 'http://domain1.com/profile.php?login=$login'\" value=\"Edit profile\">";?>
         </form>
 

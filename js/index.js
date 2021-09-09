@@ -13,6 +13,7 @@ $( document ).ready(function() {
         }
     );
 
+
 });
 
 function sendAjaxForm(successtext, form_signup, url) {

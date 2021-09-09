@@ -1,61 +1,86 @@
 <?php
 interface iUser
 {
-    public function SetNewValues(string $l, string $f, string $e, string $d);
     public function GetLastName();
     public function GetFirstName();
     public function GetBirth();
     public function GetEmail();
     public function GetPassword();
     public function GetLogin();
+    public function SetLastName(string $temp);
+    public function SetFirstName(string $temp);
+    public function SetBirth(string $temp);
+    public function SetEmail(string $temp);
+    public function SetPassword(string $temp);
+    public function SetLogin(string $temp);
 }
 
 class User implements iUser
 {
-    private string $DB_HOST = "localhost";
-    private string $DB_USERNAME = "admin";
-    private string $DB_PASSWORD = "Flvbybcnhfnjh123$";
-    private string $DB_DATABASE = "site";
+    private string $login;
+    private string $firstname;
+    private string $lastname;
+    private string $birth;
+    private string $email;
+    private string $password;
+    private string $id;
 
-    public function __construct() {
-        $this->mysqli = new mysqli($this->DB_HOST, $this->DB_USERNAME, $this->DB_PASSWORD, $this->DB_DATABASE);
+   /* public function __construct(string $l, string $f, string $ln, string $b, string $m, string $p, string $id) {
+        $this->login=$l;
+        $this->firstname=$f;
+        $this->lastname=$ln;
+        $this->birth=$b;
+        $this->email=$m;
+        $this->password=$p;
+        $this->id=$id;
+    }*/
+
+    public function GetLastName(){
+        return $this->lastname;
     }
 
-    public function SetNewValues(string $h, string $u, string $p, string $d) {
-        $this->DB_HOST = $h;
-        $this->DB_USERNAME = $u;
-        $this->DB_PASSWORD = $p;
-        $this->DB_DATABASE = $d;
-        $this->mysqli = new mysqli($this->DB_HOST, $this->DB_USERNAME, $this->DB_PASSWORD, $this->DB_DATABASE);
+    public function GetFirstName(){
+        return $this->firstname;
     }
 
-    public function query($query)
-    {
-        return $this->mysqli->query($query);
+    public function GetBirth(){
+        return $this->birth;
     }
 
-    public function mysqli()
-    {
-        return $this->mysqli;
-    }
-
-    public function ShowConfig(){
-        echo "DB_HOST: " . $this->DB_HOST . "<br>DB_USERNAME: " . $this->DB_USERNAME . "<br>DB_PASSWORD: " . $this->DB_PASSWORD . "<br>DB_DATABASE: " . $this->DB_DATABASE;
-    }
-
-    public function GetHost(){
-        return $this->DB_HOST;
-    }
-
-    public function GetUsername(){
-        return $this->DB_USERNAME;
+    public function GetEmail(){
+        return $this->email;
     }
 
     public function GetPassword(){
-        return $this->DB_PASSWORD;
+        return $this->password;
     }
 
-    public function GetDB(){
-        return $this->DB_DATABASE;
+    public function GetLogin(){
+        return $this->login;
     }
+
+    public function SetLastName(string $temp){
+        $this->lastname=$temp;
+    }
+
+    public function SetFirstName(string $temp){
+        $this->firstname=$temp;
+    }
+
+    public function SetBirth(string $temp){
+        $this->birth=$temp;
+    }
+
+    public function SetEmail(string $temp){
+        $this->email=$temp;
+    }
+
+    public function SetPassword(string $temp){
+        $this->password=$temp;
+    }
+
+    public function SetLogin(string $temp){
+        return $this->login=$temp;
+    }
+
 }
