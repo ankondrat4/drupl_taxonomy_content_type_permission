@@ -5,6 +5,14 @@ $( document ).ready(function() {
             return false;
         }
     );
+
+    $("#btn3").click(
+        function(){
+            sendAjaxFormIn('successtext', 'form_signin', 'login.php');
+            return false;
+        }
+    );
+
 });
 
 function sendAjaxForm(successtext, form_signup, url) {
@@ -24,6 +32,22 @@ function sendAjaxForm(successtext, form_signup, url) {
     });
 }
 
+function sendAjaxFormIn(successtext, form_signin, url) {
+    $.ajax({
+        url:     url, //url страницы (action_ajax_form.php)
+        type:     "POST", //метод отправки
+        dataType: "html", //формат данных
+        data: $("#"+form_signin).serialize(),  // Сеарилизуем объект
+        success: function(data)
+        {
+            $('#successtext').html(data);
+
+        },
+        error: function(response) { // Данные не отправлены
+            $('#successtext').html('Error. Data don\'t send.');
+        }
+    });
+}
 
 
 
@@ -34,7 +58,7 @@ var confirmPassword = $("#txtConfirmPassword").val();
 if (password != confirmPassword)
     $("#divCheckPasswordMatch").html("Passwords do not match!");
 else
-    $("#divCheckPasswordMatch").html("Passwords match.");
+    $("#divCheckPasswordMatch").html("<span style=\"color:blue;\">Passwords match.</span>");
 }
 
 $(document).ready(function () {
@@ -59,7 +83,7 @@ $(function() {
 
 $(function() {
 	$(".btn-signup").click(function() {
-  $(".nav").toggleClass("nav-up");
+  //$(".nav").toggleClass("nav-up");
   $(".form-signup-left").toggleClass("form-signup-down");
   $(".success").toggleClass("success-left"); 
   $(".frame").toggleClass("frame-short");

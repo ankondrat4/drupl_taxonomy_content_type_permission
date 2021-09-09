@@ -45,11 +45,11 @@ body {
 }
 
 .frame-long {
-  height: 800px;
+  height: 850px;
 }
 
 .frame-short {
-  height: 600px;
+  height: 650px;
   margin-top: 50px;
   box-shadow: 0px 2px 7px rgba(0,0,0,0.1);
 }
