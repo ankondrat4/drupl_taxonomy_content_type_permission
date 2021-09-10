@@ -18,11 +18,11 @@ if(isset($_SESSION["login"])) {
 
         if(password_verify($_POST['password'], $password)) {
             // If the password inputs matched the hashed password in the database
+            try {
                 $user = new User();
-                $user->SetFistName($_POST['first_name']);
-                $user->SetLastName($_POST['last_name']);
+                $user->SetFistName($_POST['firstname']);
+                $user->SetLastName($_POST['lastname']);
                 $user->SetBirth($_POST['date']);
-                $conn = new Database();
                 $query = "UPDATE users SET first_name='$user->GetFirstName()', last_name='$user->GetLastName()', birth='$user->GetBirth()' WHERE login='$login'";
                 $result = $conn->query($query);
                 //message for user
@@ -32,8 +32,12 @@ if(isset($_SESSION["login"])) {
                     location.reload();
                     }, 1000);
                 </script>
-                <meta http-equiv=\"refresh\" content=\"0;http://domain1.com/profile.php\">
+                <meta http-equiv=\"refresh\" content=\"0;http://domain1.com/mypage.php\">
                 ";
+            }
+            catch (Exception $e){
+                echo $e->getMessage();
+            }
         } else echo "<span style=\"color:red;\">Error! Wrong password!</span>";
     } else echo "<span style=\"color:red;\">Error! Enter your password for confirm update!</span>";
 } else header("Location: /");
