@@ -13,6 +13,12 @@ $( document ).ready(function() {
         }
     );
 
+    $("#btn_update").click(
+        function(){
+            sendAjaxFormProfile('successtext', 'form_profile', 'update_profile.php');
+            return false;
+        }
+    );
 
 });
 
@@ -25,7 +31,6 @@ function sendAjaxForm(successtext, form_signup, url) {
         success: function(data)
         {
             $('#successtext').html(data);
-
         },
         error: function(response) { // Данные не отправлены
             $('#successtext').html('Error. Data don\'t send.');
@@ -42,7 +47,6 @@ function sendAjaxFormIn(successtext, form_signin, url) {
         success: function(data)
         {
             $('#successtext').html(data);
-
         },
         error: function(response) { // Данные не отправлены
             $('#successtext').html('Error. Data don\'t send.');
@@ -50,6 +54,22 @@ function sendAjaxFormIn(successtext, form_signin, url) {
     });
 }
 
+
+function sendAjaxFormProfile(successtext, form_profile, url) {
+    $.ajax({
+        url:     url, //url страницы (action_ajax_form.php)
+        type:     "POST", //метод отправки
+        dataType: "html", //формат данных
+        data: $("#"+form_profile).serialize(),  // Сеарилизуем объект
+        success: function(data)
+        {
+            $('#successtext').html(data);
+        },
+        error: function(response) { // Данные не отправлены
+            $('#successtext').html('Error. Data don\'t send.');
+        }
+    });
+}
 
 
 function checkPasswordMatch() {

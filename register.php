@@ -1,6 +1,5 @@
 <?php
 require_once('class/database.php');
-
 //validate input fields
 if (!empty($_POST['username']) &&!empty($_POST['firstname']) && !empty($_POST['lastname']) && !empty($_POST['email']) && !empty($_POST['date']) && !empty($_POST['topics']) && !empty($_POST['password'])) {
     if(strcmp($_POST['password'],$_POST['password2']) == 0){
@@ -23,13 +22,8 @@ if (!empty($_POST['username']) &&!empty($_POST['firstname']) && !empty($_POST['l
             {
                 $query = "INSERT INTO user_topics(id_user,id_topic) VALUES ('$id','$topics[$i]')";
                 $conn->query($query);
-                //echo($topics[$i] . " ");
             }
-/*          //error
-            $conn->mysqli()->prepare("INSERT INTO users(first_name,last_name,mail,birth,pass) VALUES (?,?,?,?,?)");
-            $conn->mysqli()->bind_param('sssss', $firstname, $lastname, $email, $date, $pass);
-            $conn->mysqli()->execute();
-*/
+
             //message for user
             echo "<p> Thanks for signing up ".$_POST['username']."! You can log in now.</p>
             <script>

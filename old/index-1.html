@@ -1,3 +1,13 @@
+<?php
+
+	if(isset($_SESSION["login"])){
+	echo"Session is set";
+	// вывод "Session is set"; // в целях проверки
+	header("Location: intropage.php");
+	}
+	else echo"Session is unset";
+?>
+
 <!DOCTYPE html>
 <html >
 <head>

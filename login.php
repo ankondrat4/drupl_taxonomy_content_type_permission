@@ -9,7 +9,7 @@ if (!empty($_POST['username']) && !empty($_POST['password'])) {
     $result = $conn->query($query, MYSQLI_USE_RESULT);
     if($result->num_rows == 1) {
         while ($row = $result->fetch_assoc()) {
-            $password = $row["pass"];
+        $password = $row["pass"];
         }
     }
 
@@ -26,9 +26,7 @@ if (!empty($_POST['username']) && !empty($_POST['password'])) {
             location.reload();
             }, 2000);
         </script>
-        <meta http-equiv=\"refresh\" content=\"0;http://domain1.com/mypage.php?login=$login\">
+        <meta http-equiv=\"refresh\" content=\"0;http://domain1.com/mypage.php\">
         ";
     } else echo "<span style=\"color:red;\">Error! Wrong password or login!</span>";
-
-
 } else echo "Error! Fill in all required fields for sign in!";
